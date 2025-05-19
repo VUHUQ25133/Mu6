@@ -119,7 +119,7 @@ const AlbumPage = () => {
 											>
 												<div className='flex items-center justify-center'>
 													{isCurrentSong && isPlaying ? (
-														<div className='size-4 text-green-500'>♫</div>
+														<div className='size-4 text-yellow-500'>♫</div>
 													) : (
 														<span className='group-hover:hidden'>{index + 1}</span>
 													)}

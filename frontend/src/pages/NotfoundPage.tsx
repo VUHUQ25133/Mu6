@@ -12,7 +12,6 @@ export default function NotfoundPage() {
 					<Music2 className='h-24 w-24 text-yellow-300' />
 				</div>
 
-				{/* Error */}
 				<div className='space-y-4'>
 					<h1 className='text-7xl font-bold text-white'>404</h1>
 					<h2 className='text-2xl font-semibold text-white'>Page not found</h2>
@@ -21,7 +20,6 @@ export default function NotfoundPage() {
 					</p>
 				</div>
 
-				{/* Action buttons */}
 				<div className='flex flex-col sm:flex-row gap-4 justify-center items-center mt-8'>
 					<Button
 						onClick={() => navigate(-1)}
