@@ -10,14 +10,14 @@ interface MusicStore {
 	error: string | null;
 	currentAlbum: Album | null;
 	featuredSongs: Song[];
-	madeForYouSongs: Song[];
+	forYouSongs: Song[];
 	trendingSongs: Song[];
 	stats: Stats;
 
 	fetchAlbums: () => Promise<void>;
 	fetchAlbumById: (id: string) => Promise<void>;
 	fetchFeaturedSongs: () => Promise<void>;
-	fetchMadeForYouSongs: () => Promise<void>;
+	fetchForYouSongs: () => Promise<void>;
 	fetchTrendingSongs: () => Promise<void>;
 	fetchStats: () => Promise<void>;
 	fetchSongs: () => Promise<void>;
@@ -31,13 +31,13 @@ export const useMusicStore = create<MusicStore>((set) => ({
 	isLoading: false,
 	error: null,
 	currentAlbum: null,
-	madeForYouSongs: [],
+	forYouSongs: [],
 	featuredSongs: [],
 	trendingSongs: [],
 	stats: {
-		totalSongs: 0,
-		totalAlbums: 0,
-		totalUsers: 0,
+		songsTotal: 0,
+		albumsTotal: 0,
+		usersTotal: 0,
 		totalArtists: 0,
 	},
 
@@ -137,11 +137,11 @@ export const useMusicStore = create<MusicStore>((set) => ({
 		}
 	},
 
-	fetchMadeForYouSongs: async () => {
+	fetchForYouSongs: async () => {
 		set({ isLoading: true, error: null });
 		try {
-			const response = await axiosInstance.get("/songs/made-for-you");
-			set({ madeForYouSongs: response.data });
+			const response = await axiosInstance.get("/songs/for-you");
+			set({ forYouSongs: response.data });
 		} catch (error: any) {
 			set({ error: error.response.data.message });
 		} finally {

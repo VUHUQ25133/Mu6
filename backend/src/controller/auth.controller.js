@@ -3,7 +3,7 @@ import { User } from "../models/user.model.js"
 export const authCallback = async (req, res, next) => {
     try {
         const { id, firstname, lastname, imageUrl } = req.body;
-        // check login
+
         const user = await User.findOne({clerkId: id});
 
         if (!user) {

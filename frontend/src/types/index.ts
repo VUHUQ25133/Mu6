@@ -20,9 +20,9 @@ export interface Album {
 }
 
 export interface Stats {
-	totalSongs: number;
-	totalAlbums: number;
-	totalUsers: number;
+	songsTotal: number;
+	albumsTotal: number;
+	usersTotal: number;
 	totalArtists: number;
 }
 

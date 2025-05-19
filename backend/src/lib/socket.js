@@ -37,7 +37,7 @@ export const initSocket = (server) => {
                     receiverId,
                     content,
                 });
-                // send to online receiver realtime
+
                 const receiverSocketId = userSockets.get(receiverId);
                 if (receiverSocketId) {
                     io.to(receiverSocketId).emit("receive_message", message);

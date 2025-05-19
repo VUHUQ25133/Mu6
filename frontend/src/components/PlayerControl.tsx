@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button.tsx";
 import { Slider } from "@/components/ui/slider.tsx";
 import { usePlayerStore } from "@/stores/usePlayerStore.tsx";
-import { Laptop2, ListMusic, Mic2, Pause, Play, Repeat, Repeat1, Shuffle, SkipBack, SkipForward, Volume1 } from "lucide-react";
+import { ListMusic, Mic2, Pause, Play, Repeat, Repeat1, Shuffle, SkipBack, SkipForward, Volume1 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const formatTime = (seconds: number) => {
@@ -96,7 +96,7 @@ export const PlayerControls = () => {
 						<Button
 							size='icon'
 							variant='ghost'
-							className={`hidden sm:inline-flex hover:text-white transition-colors duration-200 ${isShuffling ? 'text-green-500' : 'text-zinc-400'
+							className={`hidden sm:inline-flex hover:text-white transition-colors duration-200 ${isShuffling ? 'text-yellow-500' : 'text-zinc-400'
 								}`}
 							onClick={toggleShuffle}
 						>
@@ -137,7 +137,7 @@ export const PlayerControls = () => {
 							onClick={cycleRepeatMode}
 							className={`
 									hidden sm:inline-flex hover:text-white
-									${repeatMode === 'off' ? 'text-zinc-400' : repeatMode === 'one' ? 'text-green-500' : 'text-green-500'}`}>
+									${repeatMode === 'off' ? 'text-zinc-400' : repeatMode === 'one' ? 'text-yellow-500' : 'text-yellow-500'}`}>
 							{repeatMode === 'one' ? (
 								<Repeat1 className='h-4 w-4' />
 							) : (
@@ -160,18 +160,15 @@ export const PlayerControls = () => {
 				</div>
 				{/* volume controls */}
 				<div className='hidden sm:flex items-center gap-4 min-w-[180px] w-[30%] justify-end'>
-					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400'>
+					<Button size='icon' variant='ghost' className='hover:text-yellow-300 text-zinc-400'>
 						<Mic2 className='h-4 w-4' />
 					</Button>
-					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400'>
+					<Button size='icon' variant='ghost' className='hover:text-yellow-300 text-zinc-400'>
 						<ListMusic className='h-4 w-4' />
-					</Button>
-					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400'>
-						<Laptop2 className='h-4 w-4' />
 					</Button>
 
 					<div className='flex items-center gap-2'>
-						<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400'>
+						<Button size='icon' variant='ghost' className='hover:text-yellow-300 text-zinc-400'>
 							<Volume1 className='h-4 w-4' />
 						</Button>
 
@@ -179,7 +176,7 @@ export const PlayerControls = () => {
 							value={[volume]}
 							max={100}
 							step={1}
-							className='w-24 hover:cursor-grab active:cursor-grabbing'
+							className='w-30 hover:cursor-grab active:cursor-grabbing'
 							onValueChange={(value) => {
 								setVolume(value[0]);
 								if (audioRef.current) {

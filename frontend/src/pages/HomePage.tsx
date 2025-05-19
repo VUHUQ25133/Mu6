@@ -9,10 +9,10 @@ import SectionGrid from "../components/homePage/SectionGrid.tsx";
 const HomePage = () => {
 	const {
 		fetchFeaturedSongs,
-		fetchMadeForYouSongs,
+		fetchForYouSongs,
 		fetchTrendingSongs,
 		isLoading,
-		madeForYouSongs,
+		forYouSongs,
 		featuredSongs,
 		trendingSongs,
 	} = useMusicStore();
@@ -21,16 +21,16 @@ const HomePage = () => {
 
 	useEffect(() => {
 		fetchFeaturedSongs();
-		fetchMadeForYouSongs();
+		fetchForYouSongs();
 		fetchTrendingSongs();
-	}, [fetchFeaturedSongs, fetchMadeForYouSongs, fetchTrendingSongs]);
+	}, [fetchFeaturedSongs, fetchForYouSongs, fetchTrendingSongs]);
 
 	useEffect(() => {
-		if (madeForYouSongs.length > 0 && featuredSongs.length > 0 && trendingSongs.length > 0) {
-			const allSongs = [...featuredSongs, ...madeForYouSongs, ...trendingSongs];
+		if (forYouSongs.length > 0 && featuredSongs.length > 0 && trendingSongs.length > 0) {
+			const allSongs = [...featuredSongs, ...forYouSongs, ...trendingSongs];
 			initializeQueue(allSongs);
 		}
-	}, [initializeQueue, madeForYouSongs, trendingSongs, featuredSongs]);
+	}, [initializeQueue, forYouSongs, trendingSongs, featuredSongs]);
 
 	return (
 		<main className='rounded-md overflow-hidden h-full bg-gradient-to-b from-zinc-800 to-zinc-900'>
@@ -41,7 +41,7 @@ const HomePage = () => {
 					<FeaturedSection />
 
 					<div className='space-y-8'>
-						<SectionGrid title='You May Listen' songs={madeForYouSongs} isLoading={isLoading} />
+						<SectionGrid title='You May Listen' songs={forYouSongs} isLoading={isLoading} />
 						<SectionGrid title='On Trending' songs={trendingSongs} isLoading={isLoading} />
 					</div>
 				</div>

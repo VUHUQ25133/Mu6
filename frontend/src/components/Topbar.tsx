@@ -14,7 +14,7 @@ const Topbar = () => {
         <div className="flex items-center justify-between p-4 sticky top-0 
         bg-zinc-900/50 dark:bg-zinc-900/75 backdrop-blur-md z-10">
             <div className="flex items-center">
-                <img src="/logo.png" className="size-13" alt="Mu6" /> Mu6
+                <img src="/logo.png" className="size-13" alt="Mu6" /> <span style={{ fontFamily: 'Consolas', fontSize: '20px' }}>Mu6</span>
             </div>
             <div className="flex items-center gap-4">
                 {isAdmin && (
@@ -24,9 +24,6 @@ const Topbar = () => {
                         Admin Dashboard
                     </Link>
                 )}
-                {/* <SignedIn>
-                    <SignOutButton />
-                </SignedIn> */}
                 <SignedOut>
                     <SignInOAuthButtons />
                 </SignedOut>

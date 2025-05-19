@@ -46,14 +46,14 @@ cron.schedule("0 * * * *", () => {
 
 
 
-app.use(express.json());    //parse req.body
-app.use(clerkMiddleware()); //add auth to rq object
+app.use(express.json());
+app.use(clerkMiddleware());
 app.use(fileUpload({
     useTempFiles: true,
     tempFileDir: path.join(__dirname, "temp"),
     createParentPath: true,
     limits: {
-        fileSize: 10 *1024*1024,    //10MB max
+        fileSize: 20 *1024*1024, 
     }
 }));
 app.use(cors(
@@ -68,6 +68,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);
 app.use("/api/stats", statRoutes);
+
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "../frontend/dist")));
 	app.get("*", (req, res) => {

@@ -120,7 +120,7 @@ const AddSongDialog = () => {
 						onChange={(e) => setFiles((prev) => ({ ...prev, image: e.target.files![0] }))}
 					/>
 
-					{/* image upload area */}
+					{/* Upload image */}
 					<div
 						className='flex items-center justify-center p-6 border-2 border-dashed border-zinc-700 rounded-lg cursor-pointer'
 						onClick={() => imageInputRef.current?.click()}
@@ -145,7 +145,7 @@ const AddSongDialog = () => {
 						</div>
 					</div>
 
-					{/* Audio upload */}
+					{/* Upload Audio */}
 					<div className='space-y-2'>
 						<label className='text-sm font-medium'>Audio File</label>
 						<div className='flex items-center gap-2'>
@@ -155,7 +155,7 @@ const AddSongDialog = () => {
 						</div>
 					</div>
 
-					{/* other fields */}
+					{/* Others */}
 					<div className='space-y-2'>
 						<label className='text-sm font-medium'>Title</label>
 						<Input

@@ -65,11 +65,11 @@ const ChatPage = () => {
 
                                             <div
                                                 className={`rounded-lg p-3 max-w-[70%]
-													${message.senderId === user?.id ? "bg-green-500" : "bg-zinc-800"}
+													${message.senderId === user?.id ? "bg-orange-700" : "bg-zinc-800"}
 												`}
                                             >
                                                 <p className='text-sm'>{message.content}</p>
-                                                <span className='text-xs text-zinc-300 mt-1 block'>
+                                                <span className='text-xs text-zinc-400 mt-1 block'>
 													{formatTime(message.createdAt)}
 												</span>
                                             </div>
